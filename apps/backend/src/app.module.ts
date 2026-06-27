@@ -4,6 +4,7 @@ import configuration from './config/configuration';
 import { AuthModule } from './auth/auth.module';
 import { LogsModule } from './logs/logs.module';
 import { AwsModule } from './aws/aws.module';
+import { HealthModule } from './health/health.module';
 import { LoggerModule } from './common/logger/logger.module';
 
 @Module({
@@ -14,11 +15,11 @@ import { LoggerModule } from './common/logger/logger.module';
       envFilePath: ['.env', '../../.env'],
     }),
 
-    LoggerModule,
-
     AuthModule,
     LogsModule,
     AwsModule,
+    HealthModule,
+    LoggerModule,
   ],
 })
 export class AppModule implements NestModule {
