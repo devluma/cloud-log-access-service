@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { LoginDto } from './dto/login.dto';
+import { AppLogger } from '@/common/logger/logger.service';
 
 const users = [
   { id: '1', email: 'admin@sap.local', password: 'admin123', role: 'admin' },
