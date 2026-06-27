@@ -1,0 +1,47 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "build": "nest build",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "jest",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "latest",
+    "@aws-sdk/s3-request-presigner": "latest",
+    "@nestjs/common": "latest",
+    "@nestjs/config": "latest",
+    "@nestjs/core": "latest",
+    "@nestjs/jwt": "latest",
+    "@nestjs/passport": "latest",
+    "@nestjs/platform-express": "latest",
+    "@nestjs/swagger": "latest",
+    "class-transformer": "latest",
+    "class-validator": "latest",
+    "helmet": "latest",
+    "passport": "latest",
+    "passport-jwt": "latest",
+    "reflect-metadata": "latest",
+    "rxjs": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@nestjs/cli": "latest",
+    "@nestjs/schematics": "latest",
+    "@nestjs/testing": "latest",
+    "@types/node": "latest",
+    "@types/passport-jwt": "latest",
+    "eslint": "latest",
+    "globals": "^17.7.0",
+    "jest": "latest",
+    "prettier": "latest",
+    "ts-jest": "latest",
+    "ts-node": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "^8.62.0"
+  }
+}
