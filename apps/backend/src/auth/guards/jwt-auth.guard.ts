@@ -1,4 +1,5 @@
-// TODO: implementar AuthGuard JWT.
-// Próximo passo:
-// - Adicionar JwtStrategy
-// - Registrar guard global no AppModule
+import { Injectable } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+
+@Injectable()
+export class JwtAuthGuard extends AuthGuard('jwt') {}

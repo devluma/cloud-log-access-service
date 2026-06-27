@@ -13,7 +13,7 @@ const jwtExpiresIn = (process.env.JWT_EXPIRES_IN ?? '15m') as `${number}${'s' | 
     JwtModule.register({
       secret: process.env.JWT_SECRET || 'dev-secret',
       signOptions: {
-        expiresIn: process.env.JWT_EXPIRES_IN || '15m',
+        expiresIn: jwtExpiresIn,
       },
     }),
   ],
