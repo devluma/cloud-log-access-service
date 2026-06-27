@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
+import configuration from '../config/configuration';
+
 @Injectable()
 export class HealthService {
   check() {
@@ -8,7 +10,7 @@ export class HealthService {
       service: 'cloud-log-access-service',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
-      environment: process.env.NODE_ENV || 'development',
+      environment: configuration(),
     };
   }
 }
