@@ -4,6 +4,7 @@ import configuration from './config/configuration';
 import { AuthModule } from './auth/auth.module';
 import { LogsModule } from './logs/logs.module';
 import { AwsModule } from './aws/aws.module';
+import { LoggerModule } from './common/logger/logger.module';
 
 @Module({
   imports: [
@@ -12,9 +13,16 @@ import { AwsModule } from './aws/aws.module';
       load: [configuration],
       envFilePath: ['.env', '../../.env'],
     }),
+
+    LoggerModule,
+
     AuthModule,
     LogsModule,
     AwsModule,
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
