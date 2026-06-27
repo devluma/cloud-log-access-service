@@ -4,13 +4,15 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 
+import configuration from './config/configuration';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.use(helmet());
 
   app.enableCors({
-    origin: [process.env.CORS_ORIGIN || 'http://localhost:3000'],
+    origin: [configuration().cors.origin],
     credentials: true,
   });
 
@@ -32,7 +34,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
-  const port = Number(process.env.PORT || 3001);
+  const port = configuration().port;
   await app.listen(port);
 }
 
