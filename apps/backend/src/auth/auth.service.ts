@@ -9,9 +9,14 @@ const users = [
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly logger: AppLogger,
+  ) {}
 
   login(dto: LoginDto) {
+    this.logger.log(`Login attempt for user ${dto.email}`);
+
     const user = users.find(
       (item) => item.email === dto.email && item.password === dto.password,
     );
@@ -25,6 +30,8 @@ export class AuthService {
       email: user.email,
       role: user.role,
     };
+
+    this.logger.log(`User ${user.email} logged in`);
 
     return {
       accessToken: this.jwtService.sign(payload),
